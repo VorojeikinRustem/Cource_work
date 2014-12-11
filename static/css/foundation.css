@@ -6189,3 +6189,63 @@ th.hide-for-touch {
 
   th.show-for-print {
     display: table-cell !important; } }
+
+/* Мои стили */
+.my {
+    margin-top: 10px;
+    margin-right: 3px;
+    }
+
+.my_date{
+  font-size: 12px;
+  padding-bottom: 0px;
+}
+
+fieldset {
+  padding-top:0px;
+  padding-bottom:0px;
+  -moz-box-shadow:inset 0px 0px 1px #6c7ad4;
+  -webkit-box-shadow:inset 0px 0px 2px #6c7ad4;
+  box-shadow:inset 0px 0px 1px #6c7ad4;
+
+}
+
+ .legend_class_NE_RABOCHIY{
+  -moz-box-shadow: 0px 0px 2px #6c7ad4;
+  -webkit-box-shadow: 0px 0px 2px #6c7ad4;
+  box-shadow: 0px 0px 2px #6c7ad4;
+}
+
+.black_color {
+  color: black;
+}
+
+.article_content{
+  margin: 0px;
+}
+
+.article-footer{
+  padding-left:8px;
+  padding-right:5px;
+  margin-bottom:8px;
+}
+
+p{
+  font-size: 14px;
+}
+
+.my_header{
+  text-align:center;
+}
+
+.index_header{
+  text-shadow:
+  0px 4px 3px rgba(0,0,0,0.4),
+  0px 8px 13px rgba(0,0,0,0.1),
+  0px 18px 23px rgba(0,0,0,0.1);
+
+}
+p{
+  margin-top:5px;
+  margin-bottom: 10px;
+}

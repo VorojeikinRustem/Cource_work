@@ -1,20 +1,30 @@
+
 {% extends 'main.html' %}
 
 {% block article %}
-<h4>{{ article.article_date }}</h4>
+<br>
 <h2>{{ article.article_title }}</h2>
-<p>{{ article.article_text }}</p>
+<h4 class="warning label">{{ article.article_date }}</h4>
+<p>{{ article.article_text|linebreaks }}</p>
 <hr>
 
+<p class="alert-box">Комментарии: </p>
 <div class="large-offset-1 large-8 columns">
-<p>Комментарии: </p>
-{% for comment in comments %}
-    <p>{{ comment.comments_text }}</p>
+{%  for comment in comments %}
+    <blockquote>
+    <p class="black_color">{{ comment.comments_text }}</p>
+    <cite>
+        {{ comment.comments_from.username }}, {{comment.comments_date}}
+    </cite>
+    </blockquote>
 {% endfor %}
+    {% if username %}
     <form action="/articles/addcomment/{{ article.id }}/" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="button" value="Добавить коментарий">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" class="button" value="Добавить комментарий">
     </form>
-</div>
+    {% endif %}
+
+ </div>
 {% endblock %}
