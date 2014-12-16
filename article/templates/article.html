@@ -2,11 +2,14 @@
 {% extends 'main.html' %}
 
 {% block article %}
+
 <br>
+<div>
 <h2>{{ article.article_title }}</h2>
 <h4 class="warning label">{{ article.article_date }}</h4>
-<p>{{ article.article_text|linebreaks }}</p>
+<div>{{ article.article_text|linebreaks }}</div>
 <hr>
+</div>
 
 <p class="alert-box">Комментарии: </p>
 <div class="large-offset-1 large-8 columns">
@@ -14,7 +17,7 @@
     <blockquote>
     <p class="black_color">{{ comment.comments_text }}</p>
     <cite>
-        {{ comment.comments_from.username }}, {{comment.comments_date}}
+        {{ comment.comments_from.username }},                                                {{comment.comments_date}}
     </cite>
     </blockquote>
 {% endfor %}

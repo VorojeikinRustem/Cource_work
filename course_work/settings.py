@@ -39,6 +39,7 @@ INSTALLED_APPS = (
 
     'article',
     'loginsys',
+    'polls',
 
 )
 
@@ -96,6 +97,7 @@ TEMPLATE_DIRS = (
     '/home/te7ris/virtualenv/projects/course_work/templates',
     '/home/te7ris/virtualenv/projects/course_work/article/templates',
     '/home/te7ris/virtualenv/projects/course_work/loginsys/templates',
+    '/home/te7ris/virtualenv/projects/course_work/polls/templates/polls',
 )
 
 STATICFILES_DIRS = (

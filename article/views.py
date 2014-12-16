@@ -1,7 +1,7 @@
 from django.http.response import HttpResponse, Http404
 from django.template.loader import get_template
 from django.template import Context
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render_to_response, redirect, render
 from article.models import Article, Comments
 from django.core.exceptions import ObjectDoesNotExist
 from forms import CommentForm
@@ -9,16 +9,34 @@ from django.core.context_processors import csrf
 from django.core.paginator import Paginator
 from django.contrib import auth
 
+from polls.models import Choice, Question
+
 from django.contrib.auth.models import User
 from datetime import datetime
 
 def index(request):
     return redirect('/page/1/')
 
+
+def about(request):
+    return render(request, 'about.html', {'username': auth.get_user(request).username})
+
 def articles(request, page_number=1):
+
+    question = Question.objects.get(pk=2)
+
     all_articles = Article.objects.all().order_by('-id')
     current_page = Paginator(all_articles, 3)
-    return render_to_response('articles.html', {'articles': current_page.page(page_number), 'username': auth.get_user(request).username})
+    current_page2 = Paginator(all_articles, 100)
+    return render_to_response(
+        'articles.html',
+        {'articles': current_page.page(page_number),
+         'articles2': current_page2.page(1),
+         'username': auth.get_user(request).username,
+
+
+        'question': question,
+        'articles':current_page.page(page_number)})
 
 def article(request, article_id=1):
     comment_form = CommentForm

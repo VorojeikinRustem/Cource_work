@@ -3,20 +3,27 @@
 
 {% block articles %}
 
-<div class="large-8 columns">
-{% for article in articles %}
-    <fieldset>
-        <legend><h4><a href="/articles/get/{{ article.id }}/" class="white" >{{ article.article_title }}</a></h4></legend>
-        <p class="article_content">{{ article.article_text|linebreaks|truncatechars:300 }}</p>
-        <div class="panel radius article-footer" style="padding-bottom: 2px; padding-top: 10px;">
-            <span class="large-text-center label"> {{ article.article_likes }}  </span>
-            <a href="/articles/addlike/{{ article.id }}/">
-            <img src="{% static 'thumb24.png' %}" width="20px" height="20px"></a>
-            <p class="right my_date">Дата публикации: {{ article.article_date }}</p>
-        </div>
-    </fieldset>
-{% endfor %}
+<div class="row">
+    <div class="large-8 columns">
+    {% for article in articles %}
+        <fieldset style="border: 2px solid #4B9DBB;">
+            <legend><h4><a href="/articles/get/{{ article.id }}/" class="white" >{{ article.article_title }}</a></h4></legend>
+            <p class="article_content">{{ article.article_text|linebreaks|truncatechars:300 }}</p>
+            <div class="panel radius article-footer" style="padding-bottom: 2px; padding-top: 10px;">
+                <span class="large-text-center label"> {{ article.article_likes }}  </span>
+                <a href="/articles/addlike/{{ article.id }}/">
+                <img src="{% static 'thumb24.png' %}" width="20px" height="20px"></a>
+                <p class="right my_date">Дата публикации: {{ article.article_date }}</p>
+            </div>
+        </fieldset>
+    {% endfor %}
+    </div>
+    <div class="large-4 columns">
 
+
+{% include 'archive.html' %}
+        {% block archive %}{% endblock %}
+    </div>
 </div>
 
 <div class="row">

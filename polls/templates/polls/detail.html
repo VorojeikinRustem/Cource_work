@@ -1,0 +1,20 @@
+
+{% extends 'articles.html' %}
+
+{% block detail %}
+
+<fieldset style="border-color:#007196; padding:0px;">
+<legend style="margin:10px;"><h3>{{ question.question_text }}</h3></legend>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% csrf_token %}
+<form action="{% url 'polls:vote' question.id   %}" method="post">
+
+{% for choice in question.choice_set.all %}
+    <input type="radio" style="margin-left: 15px;" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+{% endfor %}
+<input type="submit" class="small button expand" style="margin-bottom: 0px;" value="Голосовать" />
+</form>
+</fieldset>
+{% endblock %}

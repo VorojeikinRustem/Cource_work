@@ -13,9 +13,20 @@
 <div class="top-bar">
     <section class="top-bar-section">
         <div class="row">
-            <div class="large-8 columns left">
+            <div class="large-1 small-1 columns">
+                <img src="{% static 'dj.png' %}" width="45" height="45" align="right">
+            </div>
+            <div class="large-5 small-5 columns left">
                 <h3 class="index_header"><a href="/">Обучающие материалы по Django</a></h3>
             </div>
+            <div class="large-2 small-2 columns">
+                <ul class="nav-bar">
+                    <li class="active"><a href="/">Главная</a></li>
+                    <li><a href="/about/">О проекте</a></li>
+                </ul>
+
+            </div>
+
             <div class="large-4 columns right">
             <ul class="right">
             {% if username %}
@@ -36,9 +47,10 @@
 </div>
 -->
 <div class="row">
-{% block article %}{% endblock %}
-{% block articles %}{% endblock %}
-{% block login %} {% endblock %}
+    {% block article %}{% endblock %}
+    {% block articles %}{% endblock %}
+    {% block login %} {% endblock %}
+    {% block about %} {% endblock %}
 </div>
 
 </body>
