@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'article',
     'loginsys',
     'polls',
-
+    'django_markdown',
 )
 
 MIDDLEWARE_CLASSES = (

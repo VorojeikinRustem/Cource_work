@@ -27,7 +27,7 @@ def articles(request, page_number=1):
 
     all_articles = Article.objects.all().order_by('-id')
     current_page = Paginator(all_articles, 3)
-    current_page2 = Paginator(all_articles, 100)
+    current_page2 = Paginator(all_articles.order_by('-article_likes'), 100)
     return render_to_response(
         'articles.html',
         {'articles': current_page.page(page_number),

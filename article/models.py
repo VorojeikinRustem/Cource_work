@@ -14,8 +14,18 @@ class Article(models.Model):
     article_date = models.DateTimeField()
     article_likes = models.IntegerField(default=0)
 
+    img_width = models.PositiveIntegerField(default="150")
+
+    article_image = models.ImageField(upload_to="static",
+                                      width_field="img_width",
+                                      verbose_name="Фото",
+                                      default="default.png",
+                                      blank=True)
+
+
     def __unicode__(self):
         return self.article_title
+
 
 class Comments(models.Model):
     class Meta():

@@ -1,7 +1,7 @@
 
 <fieldset style="border: 2px solid #D8D8D8;">
-    <legend><h4>Архив статей</h4></legend>
+    <legend><h4>Популярные статьи</h4></legend>
     {% for article in articles2 %}
-        <p><a href="/articles/get/{{ article.id }}/" class="white" >{{ article.article_title }}</a></p>
+        <p><span class="label round success">{{ article.article_likes }}</span> <a href="/articles/get/{{ article.id }}/" class="white" >{{ article.article_title|truncatechars:30 }}</a></p>
     {% endfor %}
 </fieldset>

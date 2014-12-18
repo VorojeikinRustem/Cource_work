@@ -8,6 +8,7 @@
     {% for article in articles %}
         <fieldset style="border: 2px solid #4B9DBB;">
             <legend><h4><a href="/articles/get/{{ article.id }}/" class="white" >{{ article.article_title }}</a></h4></legend>
+
             <p class="article_content">{{ article.article_text|linebreaks|truncatechars:300 }}</p>
             <div class="panel radius article-footer" style="padding-bottom: 2px; padding-top: 10px;">
                 <span class="large-text-center label"> {{ article.article_likes }}  </span>

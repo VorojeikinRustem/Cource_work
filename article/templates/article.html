@@ -1,5 +1,6 @@
 
 {% extends 'main.html' %}
+{% load django_markdown %}
 
 {% block article %}
 
@@ -7,7 +8,11 @@
 <div>
 <h2>{{ article.article_title }}</h2>
 <h4 class="warning label">{{ article.article_date }}</h4>
-<div>{{ article.article_text|linebreaks }}</div>
+<div style="position: relative;">
+
+    <div>{{ article.article_text|linebreaks }}</div>
+
+</div>
 <hr>
 </div>
 

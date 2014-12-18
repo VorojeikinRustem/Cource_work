@@ -10,5 +10,8 @@ urlpatterns = patterns('',
     url(r'^basicview/', include('article.urls')),
     url(r'^auth/', include('loginsys.urls')),
     url(r'^polls/', include('polls.urls', namespace='polls')),
+    url(r'^markdown/', include('django_markdown.urls')),
+
+
     url(r'^', include('article.urls')),
 )
